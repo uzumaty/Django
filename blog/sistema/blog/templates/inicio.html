@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block titulo %}Inicio{% endblock %}
+
+{% block contenido %}
+
+<div class="container">
+    <div class="card" style="background-color: #292b2d; border-color:white;">
+        <div class="card-header" style="border-color:white;">
+            <h6 style="color: white;">BIENVENIDO A MI BLOG</h6>
+        </div>
+        <div class="card-body">
+            <h5 style="color: white;" class="card-title">Mi nombre es Matias</h5>
+            <p style="color: white;" class="card-text">Acá encontraras contenido hecho por mi, te invito a conocerme.</p>
+            <a href="{% url 'muro' %}" class="btn btn-danger">¡Vamos!</a>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
