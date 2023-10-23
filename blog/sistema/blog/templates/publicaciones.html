@@ -3,43 +3,16 @@
 {% block titulo %}Publicaciones{% endblock %}
 
 {% block contenido %}
-
-
-<div class="container">
-    <div class="table-responsive-lg" >
-        <div class="card" style="background-color: #292b2d; border-color:white;">  
+<div class="table-responsive-lg">
+    <div class="container">
+        <div class="card" style="background-color: #292b2d; border-color:white;">
             <div class="card-header" style="border-color:white;">
                 <h6 style="color:white;">CREA UNA PUBLICACIÓN</h6>
-            </div>
-            <div class="card-body" style="border-color:white;">
-                <form action="" method="post">
-                    <div class="form-floating mb-3" style="background-color: #292b2d;">
-                        <input style="height: 100px; background-color: #292b2d; color:white;" type="text" class="form-control" id="floatingInput"
-                            placeholder="Ingresa el titulo de tu POST" >
-                        <label style="color:white;" for="floatingInput">Ingresa el titulo de tu POST</label>
-                    </div>
-                    <br>
-
-                    <label style="color:white;" for="floatingInput">Si quieres, ¡Sube una imagen! : </label>
-                    <div class="form-floating mb-3">
-                        <input style="background-color: #292b2d; color:white;" type="file" class="form-control" id="floatingInput" placeholder="">
-                    </div>
-                    <br>
-                    <div class="form-floating">
-                        <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2"
-                            style="height: 100px; background-color: #292b2d; color:white;"></textarea>
-                        <label style="color:white;" for="floatingTextarea2">Cuentame tu historia...</label>
-                    </div>
-                    <br>
-                </form>
-            </div>
-            <div class="card-footer text-muted" style="border-color:white;">
-                <div class="d-grid gap-2 col-6 mx-auto">
-                    <input class="btn btn-secondary" type="submit" value="Publicar">
-                    <a name="" id="" class="btn btn-danger" href="{% url 'muro' %}" role="button">Cancelar</a>
-                </div>
+                <br>
+                {% include "form.html" %}
             </div>
         </div>
+        <br>
     </div>
 </div>
 {% endblock %}

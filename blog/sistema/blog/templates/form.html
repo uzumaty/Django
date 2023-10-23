@@ -1,0 +1,39 @@
+<form enctype="multipart/form-data" method="post" id="miFormulario">
+    {% csrf_token %}
+    {% for campo in formulario %}
+    <div class="mb-3">
+        <div class="mb-3">
+            <label style="color: white;" for="{{ campo.id_for_label }}" class="form-label">{{ campo.label }}:</label>
+            <br>
+            {{ campo }}
+            <br>
+        </div>
+    </div>
+    {% endfor %}
+    <br><br>
+    <div class="d-grid gap-2 col-12 mx-auto">
+        <input class="btn btn-secondary" type="submit" value="Publicar">
+        <a name="" id="btnCancelar" class="btn btn-danger" href="{% url 'muro' %}" role="button">Cancelar</a>
+    </div>
+    <br>
+</form>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script>
+    // Agrega un evento para manejar el clic en el botón de cancelar
+    document.getElementById('btnCancelar').addEventListener('click', function (event) {
+        event.preventDefault(); // Prevenir el comportamiento normal del enlace
+        Swal.fire({
+            title: '¿Estás seguro?',
+            text: '¡Estás a punto de cancelar!',
+            icon: 'info',
+            showCancelButton: true,
+            confirmButtonText: 'Sí, cancelar',
+            cancelButtonText: 'No, volver'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                // Si el usuario confirma, redirige o realiza alguna acción
+                window.location.href = "{% url 'muro' %}";
+            }
+        });
+    });
+</script>
