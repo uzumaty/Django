@@ -34,5 +34,10 @@ def eliminar(request, id):
     post.delete()
     return redirect("muro") #redirecciona a la pagina muro
 
-def editar(request):
-    return render(request, "editar.html")
+def editar(request, id):
+    post = Post.objects.get(id=id)
+    formulario = PostForm(request.POST or None, request.FILES or None, instance=post)
+    if formulario.is_valid() and request.method == "POST":
+        formulario.save()
+        return redirect("muro")
+    return render(request, "editar.html", {"formulario":formulario, "post":post})
